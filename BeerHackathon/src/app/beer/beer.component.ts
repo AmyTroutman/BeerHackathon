@@ -34,4 +34,8 @@ export class BeerComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  applyFilter(filterValue: string) {
+    // const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }
