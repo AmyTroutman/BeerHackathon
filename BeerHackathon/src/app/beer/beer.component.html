@@ -12,15 +12,15 @@
     </ng-container>
     <ng-container matColumnDef="tagline">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Tagline </th>
-        <td mat-cell *matCellDef="let element">{{element.tagline}}</td>
+        <td mat-cell *matCellDef="let beer">{{beer.tagline}}</td>
     </ng-container>
     <ng-container matColumnDef="image_url">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Image </th>
-        <td mat-cell *matCellDef="let element"><img class="beerimg" src="{{element.image_url}}"></td>
+        <td mat-cell *matCellDef="let beer"><img class="beerimg" src="{{beer.image_url}}"></td>
     </ng-container>
     <ng-container matColumnDef="abv">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> ABV </th>
-        <td mat-cell *matCellDef="let element">{{element.abv}}</td>
+        <td mat-cell *matCellDef="let beer">{{beer.abv}}</td>
     </ng-container>
 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
