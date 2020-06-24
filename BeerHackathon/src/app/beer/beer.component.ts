@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../services/api.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { BeerService } from '../services/beer.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+import { IBeer } from '../ibeer';
 
 @Component({
   selector: 'app-beer',
@@ -8,11 +12,17 @@ import { ApiService } from '../services/api.service';
 })
 export class BeerComponent implements OnInit {
 
-  constructor(private apiService: ApiService) { }
+  dataSource: MatTableDataSource<IBeer>;
+  @ViewChild(MatSort, {static: true})sort: MatSort;
+  @ViewChild(MatPaginator, {static: true})paginator: MatPaginator;
+
+  constructor(private beerService: BeerService) { }
+
 
   async ngOnInit() {
-    const data = await this.apiService.get();
-    console.log(data);
+    this.dataSource = new MatTableDataSource(await this.beerService.getBeers());
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
 }
