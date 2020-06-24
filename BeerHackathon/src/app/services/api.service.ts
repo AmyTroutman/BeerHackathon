@@ -16,4 +16,8 @@ export class ApiService {
       params: options
     }).toPromise();
   }
+
+  async getMore(path) {
+    return await this.httpClient.get<IBeer[]>(this.BeersUrl + path).toPromise();
+  }
 }
