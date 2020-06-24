@@ -13,6 +13,7 @@ import { IBeer } from '../ibeer';
 export class BeerComponent implements OnInit {
 
   dataSource: MatTableDataSource<IBeer>;
+  displayedColumns: string[] = ['name', 'tagline', 'image_url', 'abv'];
   @ViewChild(MatSort, {static: true})sort: MatSort;
   @ViewChild(MatPaginator, {static: true})paginator: MatPaginator;
 
