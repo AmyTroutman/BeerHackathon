@@ -1,5 +1,5 @@
 <h1 align=center>Look at These Beers!</h1>
-
+<button mat-stroked-button color="accent" (click)="newBeer()">Add a Beer</button>
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z5" align="center" width="80%">
     <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>

@@ -17,11 +17,19 @@ export class BeerComponent implements OnInit {
   @ViewChild(MatSort, {static: true})sort: MatSort;
   @ViewChild(MatPaginator, {static: true})paginator: MatPaginator;
 
+  count = 25;
+
   constructor(private beerService: BeerService) { }
 
 
   async ngOnInit() {
     this.dataSource = new MatTableDataSource(await this.beerService.getBeers());
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+  }
+
+  async newBeer() {
+    this.dataSource = new MatTableDataSource(await this.beerService.getBeersByCount(++this.count));
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
